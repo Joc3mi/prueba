@@ -1,0 +1,499 @@
+/*Obtención de la fuente externa mediante la regla import*/
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap");
+
+/*Obtención de la fuente de manera local*/
+@font-face {
+  font-family: "Gill Sans";
+  src: url(../fonts/gillSans.ttf);
+}
+
+/*Variables colores principales*/
+:root {
+  --prim: #22223b;
+  --sec: #bebbbb;
+  --ter: #cd5334;
+}
+
+/*----------------------- ESTILOS PARA TODO EL DOCUMENTO -----------------------------*/
+
+/*Estilos para todos los elementos*/
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Gill Sans", Arial, Helvetica, sans-serif;
+}
+
+/*Elimina el subrayado de los enlaces*/
+a {
+  text-decoration: none;
+}
+
+/*Body como elemento flex en columnas, color de fondo y primario para las letras*/
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: #4a4e69;
+  color: var(--prim);
+}
+
+/*Tipo de fuente para los h1, sus nodos hijos directos span, h2 y h3*/
+h1,
+h2,
+h3,
+h1 > span {
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
+}
+
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--prim);
+  background-color: var(--ter);
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+button :hover {
+  cursor: pointer;
+}
+
+/*----------------------- HEADER -----------------------*/
+header {
+  display: grid;
+  margin: 5px 5px 0px 5px;
+  padding: 10px;
+  background-color: var(--prim);
+  color: var(--sec);
+}
+
+/*------ HEADER ZONA LOGO ------*/
+.spcLogo {
+  margin: 10px;
+  display: flex;
+  align-items: center;
+}
+
+#logo {
+  width: 80px;
+}
+
+/*------ HEADER ZONA LOGIN y NAV ------*/
+.zonaLoginNav {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.zonaLoginNav > * {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Sé que en la tarea se indica que esté centrado verticalmente,
+      me pareció más estetico dejarlo alineado en la parte inferior*/
+.zonaLoginNav nav {
+  justify-content: space-around;
+  align-items: end;
+}
+
+/*------ HEADER ZONA LOGING ------*/
+.formulario {
+  display: flex;
+  flex-wrap: wrap; /*Si el formulario no cabe en el contenedor, los elementos pasan a otra línea*/
+  justify-content: center;
+  gap: 10px;
+}
+
+.formulario input {
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: var(--sec);
+  text-align: center;
+}
+
+/*Cambio de color de borde del input seleccionado*/
+.formulario input:focus {
+  outline: 2px solid var(--ter);
+}
+
+.formulario button:hover {
+  background-color: var(--sec);
+}
+
+/*------ HEADER ZONA NAV ------*/
+
+nav a {
+  display: flex;
+  align-items: center;
+  color: var(--sec);
+}
+
+nav a:hover {
+  color: var(--ter);
+}
+/*Estos estilos son para la página en la que se encuentra el usuario*/
+.pagActual {
+  color: var(--ter);
+}
+
+.pagActual:hover {
+  color: var(--sec);
+}
+
+/*----------------------- MAIN -----------------------*/
+
+main {
+  background-color: var(--sec);
+  margin: 5px;
+  padding: 10px;
+}
+
+section > * {
+  margin: 20px;
+}
+
+
+section h2 {
+  text-align: center;
+  border-bottom: 3px solid var(--ter);
+}
+
+/*La primera letra de cada título cambia el color*/
+section h2::first-letter {
+  color: var(--ter);
+}
+
+/*------ SECCIÓN PROMOCIÓN ------*/
+
+.promo {
+  justify-content: center;
+  align-items: center;
+}
+
+.divImagenPromo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.divImagenPromo img {
+  border-radius: 14px;
+  width: 500px;
+  max-width: 100%;
+}
+
+/*Se elimina el color de fondo de botón predefinido de manera general*/
+.divImagenPromo button {
+  background-color: transparent;
+}
+
+/*Texto fecha de validez oculto*/
+.fechaValidez {
+  visibility: hidden;
+}
+
+/*Al hacer click sobre el div, se muestra el párrafo*/
+.divImagenPromo:active .fechaValidez {
+  visibility: visible;
+}
+
+.textPromo {
+  padding: 0px 20px;
+  margin-top: 10px;
+  font-size: large;
+}
+
+.botonMeInteresa button {
+  font-size: large;
+  margin: 5px;
+}
+
+.botonMeInteresa button:hover {
+  background-color: var(--prim);
+  color: var(--sec);
+}
+
+/*------ SECCIÓN FAMILIAS DE PRODUCTOS ------*/
+
+.enlacesFamilias {
+  align-items: center;
+  justify-content: center;
+  font-size: large;
+  margin: 10px;
+}
+
+.enlacesFamilias a {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--ter);
+  text-align: center;
+  letter-spacing: 5px; /*Espaciado entre letras*/
+}
+
+/*Las sombras se muestran al pasar por encima*/
+.enlacesFamilias a:hover img {
+  box-shadow: -5px 5px 10px var(--prim);
+}
+
+/*Las sombras cambian de posición y color en los elementos inpares*/
+.enlacesFamilias a:nth-child(odd):hover img {
+  box-shadow: 5px 5px 10px var(--ter);
+}
+
+/*Filtro sepia para las imágenes*/
+.enlacesFamilias a img {
+  width: 200px;
+  max-width: 100%;
+  margin: 5px;
+  border-radius: 40px;
+  filter: sepia(1);
+}
+
+/*Al pasar por encima del enlace, se muestra sombra en el texto y se elimina el filtro*/
+.enlacesFamilias a:hover,
+.enlacesFamilias a:hover img {
+  color: var(--prim);
+  text-shadow: 0px -1px 4px var(--prim);
+  filter: none;
+}
+
+/*------ ZONA INFORMATIVA ------*/
+
+.informa {
+  margin-top: 50px;
+}
+
+.actMes {
+  text-align: center;
+}
+
+/*También se usa la fuente roboto y se define como mayúsculas todo el título*/
+.actMes h3 {
+  text-transform: uppercase;
+  letter-spacing: 20px;
+}
+
+.actMes p {
+  margin: 20px 10px;
+}
+
+/*----------------------- FOOTER -----------------------*/
+
+footer {
+  padding: 10px;
+  background-color: var(--prim);
+  margin: 5px;
+}
+
+.listaFooter {
+  color: var(--ter);
+  list-style: none; /*Se elimina la viñeta de lista*/
+  display: flex;
+  justify-content: space-around; /*Ocupan el espacio de manera dividida equitativamente*/;
+}
+
+/*Al pasar por encima de los elementos de la lista cambian de color y aparece el subrayado*/
+.listaFooter li:hover {
+  color: var(--sec);
+  text-decoration: underline;
+}
+
+.footInf {
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: center;
+  color: var(--sec);
+}
+
+/*------------------- Media query para pantallas de hasta 810px -------------------*/
+@media screen and (width<=810px) {
+  /*---- HEADER ----*/
+  header {
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .spcLogo {
+    justify-content: center;
+  }
+
+  .textoLogo {
+    display: none;
+  }
+
+  /*---- MAIN ----*/
+  /*PRIMERA SECCION*/
+  .promo {
+    display: grid;
+    grid-template-rows: 0.25fr 1fr;
+  }
+
+  .botonMeInteresa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+  }
+
+  /*SEGUNDA SECCION*/
+  .enlacesFamilias {
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+  }
+
+  /*TERCERA SECCION*/
+  .divTabla {
+    display: none;
+  }
+
+  /*---- FOOTER ----*/
+  .footSup {
+    display: none;
+  }
+
+  .footInf p {
+    display: none;
+  }
+
+  .footInf a img {
+    margin: 10px;
+    width: 50px;
+  }
+}
+
+/*------------------- Media query para pantallas de más de 810px ------------------- */
+@media screen and (width>810px) {
+  /*---- HEADER ----*/
+  header {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .textoLogo {
+    color: white;
+    padding-left: 5px;
+  }
+
+  /*Para unir un poco más las letras del nombre del banco he tenido que quitar margen al primer h1*/
+  .textoLogo h1:first-child {
+    margin-bottom: -14px;
+  }
+
+  .textoLogo h1 span {
+    color: var(--ter);
+  }
+
+  .zonaLoginNav {
+    font-size: large;
+  }
+
+  .formulario input {
+    font-size: large;
+  }
+
+  button {
+    font-size: large;
+  }
+
+  /*---- MAIN ----*/
+  /*PRIMERA SECCION*/
+  .promo {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+  }
+
+  .botonMeInteresa {
+    display: flex;
+    justify-content: end;
+  }
+
+  /*SEGUNDA SECCION*/
+  .enlacesFamilias {
+    display: grid;
+    grid-template-columns: repeat(4, 0.2fr);
+    gap: 15px;
+  }
+
+  /*TERCERA SECCION*/
+  
+  .divTabla {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contInforma {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .masVendidos {
+    font-size: large;
+    text-align: center;
+  }
+
+  /*Bordes superiores redondeados para el primer tr del thead*/
+  .masVendidos thead tr:first-child th{
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    background-color: var(--prim);
+    color: var(--sec);
+  }
+
+  .masVendidos thead tr th {
+    padding: 5px 0px;
+  }
+
+  /*Estilos de la cabecera secundaria*/
+  .thSecund{
+    background-color: var(--ter);
+    color: var(--prim);
+  }
+
+  .masVendidos tr td {
+    padding: 5px 25px;
+    border-bottom: 2px solid var(--ter);
+  }
+
+  td img {
+    width: 50px;
+    margin-right: 5px;
+  }
+
+  .actMes {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .actMes p {
+    column-count: 3;
+    column-fill: balance;
+    column-gap: 25px;
+    column-rule: 2px dotted var(--ter);
+  }
+
+  /*---- FOOTER ----*/
+  .footInf a img {
+    width: 25px;
+  }
+
+  footer {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .footInf > * {
+    padding: 0px 20px;
+  }
+}
